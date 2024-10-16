@@ -1,0 +1,321 @@
+/* kalnia-regular - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "Kalnia";
+  font-style: normal;
+  font-weight: 400;
+  src: url("../fonts/kalnia-v2-latin-regular.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+/* lato-regular - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 400;
+  src: url("../fonts/lato-v24-latin-regular.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* lato-700 - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 700;
+  src: url("../fonts/lato-v24-latin-700.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+/* kaisei-harunoumi-regular - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "Kaisei HarunoUmi";
+  font-style: normal;
+  font-weight: 400;
+  src: url("../fonts/kaisei-harunoumi-v9-latin-regular.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+/* khula-regular - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "Khula";
+  font-style: normal;
+  font-weight: 400;
+  src: url("../fonts/khula-v12-latin-regular.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+/* ibm-plex-serif-regular - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "IBM Plex Serif";
+  font-style: normal;
+  font-weight: 400;
+  src: url("../fonts/ibm-plex-serif-v19-latin-regular.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+/* kodchasan-regular - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "Kodchasan";
+  font-style: normal;
+  font-weight: 400;
+  src: url("../fonts/kodchasan-v17-latin-regular.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+/* kaisei-opti-regular - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "Kaisei Opti";
+  font-style: normal;
+  font-weight: 400;
+  src: url("../fonts/kaisei-opti-v9-latin-regular.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+.wraper {
+  max-width: 1800px;
+  margin: 0 auto;
+}
+
+.header {
+  background-color: rgb(134, 134, 134);
+}
+
+.name {
+  text-align: center;
+  font-family: "Kalnia";
+}
+
+.name .big {
+  font-size: 48px;
+}
+
+.name .small {
+  font-size: 32px;
+}
+
+.container {
+  display: flex; /* Используем flexbox для выравнивания элементов в строку */
+  justify-content: center; /* Центрируем элементы по горизонтали */
+  align-items: center; /* Выравнивание по вертикали */
+}
+
+.dropdown {
+  position: relative; /* Для позиционирования выпадающего списка */
+  margin-right: 20px; /* Отступ между выпадающими списками */
+}
+
+.dropbtn {
+  background-color: #aaaaaa; /* Цвет фона кнопки */
+  color: black; /* Цвет текста */
+  padding: 10px 20px; /* Отступы кнопки */
+  font-size: 22px; /* Размер шрифта */
+  font-family: "Kaisei Opti";
+  border: none; /* Убираем рамку */
+  border-radius: 15px;
+  cursor: pointer; /* Указатель при наведении */
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.dropbtn:hover {
+  background-color: rgb(185, 185, 185); /* Полупрозрачный фон при наведении */
+  color: black; /* Черный цвет текста при наведении */
+}
+
+.dropdown-content {
+  display: none; /* Скрываем содержимое по умолчанию */
+  position: absolute; /* Позиционирование относительно родителя */
+  background-color: rgb(209, 209, 209); /* Цвет фона выпадающего списка */
+  min-width: 160px; /* Минимальная ширина */
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2); /* Тень */
+  border-radius: 10px;
+  z-index: 1; /* Обеспечивает, чтобы содержимое было поверх других элементов */
+}
+
+.dropdown-content a {
+  color: black; /* Цвет текста */
+  padding: 12px 16px; /* Отступы */
+  text-decoration: none; /* Убираем подчеркивание */
+  display: block; /* Делаем ссылки блочными элементами */
+}
+
+.dropdown-content a:hover {
+  background-color: #f1f1f1; /* Цвет фона при наведении */
+}
+
+.action-button {
+  background-color: #ffc457;
+  color: black;
+  padding: 10px 10px; /* Отступы кнопки */
+  font-size: 22px; /* Размер шрифта */
+  font-family: "Kaisei Opti";
+  border: none; /* Убираем рамку */
+  border-radius: 15px;
+  cursor: pointer; /* Указатель при наведении */
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.action-button:hover {
+  background-color: rgb(208, 125, 0); /* Полупрозрачный фон при наведении */
+  color: black; /* Черный цвет текста при наведении */
+}
+
+.navbar {
+  display: flex; /* Используем flexbox для выравнивания кнопок в строку */
+  background-color: #aaaaaa; /* Цвет фона меню */
+  padding: 10px; /* Отступы для верхнего меню */
+  justify-content: center; /* Центрируем кнопки по горизонтали */
+  width: calc(100% - 10px); /* Занимает всю ширину экрана минус отступы */
+  margin: 0 5px; /* Отступы между краем экрана и полосой меню: 10 пикселей слева и справа */
+  box-sizing: border-box; /* Учитываем отступы в расчете ширины */
+}
+
+.nav-btn {
+  background-color: transparent; /* Прозрачный фон кнопок */
+  color: black; /* Черный цвет текста */
+  padding: 14px 20px; /* Отступы кнопки */
+  margin: 0 10px; /* Отступы между кнопками: 10 пикселей слева и справа */
+  border: 2px solid #aaaaaa; /* Черная рамка для кнопок */
+  cursor: pointer; /* Указатель при наведении */
+  font-size: 24px; /* Размер шрифта */
+  font-family: "Kaisei HarunoUmi";
+  border-radius: 15px; /* Закругленные углы */
+  transition: background-color 0.3s, color 0.3s; /* Плавный переход цвета фона и текста */
+}
+
+.nav-btn:hover {
+  background-color: rgba(0, 0, 0, 0.1); /* Полупрозрачный фон при наведении */
+  color: black; /* Черный цвет текста при наведении */
+}
+
+.navbar2 {
+  background-color: #e0c775; /* Цвет фона меню */
+  padding: 10px 0; /* Отступы для верхнего меню */
+  max-width: 1260px; /* Фиксированная ширина меню */
+  height: 180px;
+  margin: 10px auto; /* Центрируем меню с отступами по 10 пикселей от краев */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Тень для меню */
+  display: flex; /* Используем flexbox для выравнивания элементов */
+  align-items: center; /* Вертикальное выравнивание элементов */
+  border-radius: 20px;
+}
+
+.arrow {
+  background-color: transparent; /* Прозрачный фон кнопок */
+  color: black; /* Цвет текста */
+  font-size: 28px; /* Размер шрифта для стрелок */
+  border: none; /* Убираем рамку */
+  cursor: pointer; /* Указатель при наведении */
+  padding: 10px; /* Отступы кнопок */
+}
+
+.menu-container {
+  display: inline-block; /* Выравнивание кнопок в строку */
+  flex-grow: 1; /* Позволяем контейнеру занимать оставшееся пространство */
+  overflow: hidden; /* Убираем полосы прокрутки */
+}
+
+.nav-btn2 {
+  background-color: transparent; /* Прозрачный фон кнопок */
+  color: black; /* Цвет текста */
+  padding: 14px 20px; /* Отступы кнопки */
+  margin: 0 10px; /* Отступы между кнопками: 10 пикселей слева и справа */
+  border: 0px solid black; /* Белая рамка для кнопок */
+  cursor: pointer; /* Указатель при наведении */
+  font-size: 48px; /* Размер шрифта */
+  font-family: "Kalnia";
+  border-radius: 20px; /* Закругленные углы */
+  transition: background-color 0.3s, color 0.3s; /* Плавный переход цвета фона и текста */
+}
+
+.nav-btn2:hover {
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.1
+  ); /* Полупрозрачный фон при наведении */
+}
+
+.popular {
+  text-align: center; /* Выравнивание текста по центру */
+}
+
+.centered-button {
+  width: 240px; /* Ширина кнопки */
+  height: 64px; /* Высота кнопки */
+  background-color: #afa381; /* Цвет фона кнопки */
+  color: black; /* Цвет текста */
+  border: none; /* Убираем рамку */
+  border-radius: 20px; /* Закругленные углы */
+  font-size: 36px; /* Размер шрифта */
+  font-family: "Kalnia";
+  cursor: pointer; /* Указатель при наведении */
+  transition: background-color 0.3s; /* Плавный переход цвета фона */
+}
+
+.centered-button:hover {
+  background-color: #857c63; /* Цвет фона при наведении */
+}
+
+.photo-container {
+  display: flex; /* Выстраиваем элементы в ряд */
+  justify-content: space-between; /* Равномерное распределение между элементами */
+  flex-wrap: wrap; /* Включаем перенос элементов, если экран слишком мал */
+  gap: 20px; /* Промежутки между элементами */
+}
+
+.photo-item {
+  text-align: center; /* Выравнивание контента по центру */
+  width: 365px; /* Ширина каждого фото-блока */
+  background-color: white; /* Белый фон для фото-блоков */
+  padding: 10px; /* Внутренний отступ */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Небольшая тень для фото-блоков */
+  border-radius: 8px; /* Закругленные углы */
+}
+
+.photo-item img {
+  width: 365px; /* Фиксированная ширина изображения */
+  height: 244px; /* Фиксированная высота изображения */
+  object-fit: cover; /* Кадрирование изображения для сохранения пропорций */
+  border-radius: 8px; /* Закругленные углы у изображения */
+}
+
+.photo-button {
+  margin-top: 38px; /* Отступ сверху для кнопки */
+  padding: 10px 20px; /* Внутренний отступ кнопки */
+  background-color: #e4e4e4; /* Цвет кнопки */
+  color: black; /* Цвет текста кнопки */
+  border: none; /* Убираем рамку */
+  border-radius: 20px; /* Закругляем углы кнопки */
+  font-size: 32px; /* Размер текста кнопки */
+  font-family: "IBM Plex Serif";
+  cursor: pointer; /* Указатель при наведении */
+  transition: background-color 0.3s; /* Плавный переход цвета фона */
+}
+
+.photo-button:hover {
+  background-color: #a9a9a9; /* Цвет кнопки при наведении */
+}
+
+@media (max-width: 768px) {
+  .photo-item {
+    width: 48%; /* Делаем 2 фото в ряд на небольших экранах */
+  }
+}
+
+@media (max-width: 480px) {
+  .photo-item {
+    width: 100%; /* Одно фото в ряд на узких экранах */
+  }
+}
+
+.footer {
+  background-color: #000; /* Черный фон */
+  color: #fff; /* Белый текст */
+  text-align: center; /* Выравнивание текста по центру */
+  padding: 20px 0; /* Отступы сверху и снизу */
+  font-family: "Kodchasan";
+  font-size: 14px; /* Размер шрифта */
+  position: relative; /* Фиксированное положение */
+  width: 100%; /* На всю ширину экрана */
+  bottom: 0; /* Расположение внизу страницы */
+  box-sizing: border-box;
+}
