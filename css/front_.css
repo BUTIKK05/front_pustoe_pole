@@ -68,19 +68,65 @@
   font-weight: 400;
   src: url("../fonts/kaisei-opti-v9-latin-regular.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
-
-.wraper {
-  max-width: 1800px;
-  margin: 0 auto;
+/* Основные стили остаются без изменений */
+body {
+  background-image: url("/img/fone_proekt.jpg");
+  background-size: 2200px 649px;
+  background-position: center bottom;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-color: white;
 }
 
-.header {
-  background-color: rgb(134, 134, 134);
+.wraper {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 10px;
+}
+
+.wraper div {
+  position: relative;
+}
+
+.wraper img {
+  width: 30px;
+  height: auto;
+  cursor: pointer;
+}
+
+.dropdown3 {
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: white;
+  list-style: none;
+  padding: 10px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  border-radius: 10px;
+}
+
+.dropdown li {
+  display: inline;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.dropdown li:hover {
+  background-color: #f1f1f1;
+}
+
+a:focus + .dropdown,
+a:hover + .dropdown {
+  display: block;
 }
 
 .name {
   text-align: center;
   font-family: "Kalnia";
+  line-height: 0.5;
 }
 
 .name .big {
@@ -92,230 +138,325 @@
 }
 
 .container {
-  display: flex; /* Используем flexbox для выравнивания элементов в строку */
-  justify-content: center; /* Центрируем элементы по горизонтали */
-  align-items: center; /* Выравнивание по вертикали */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .dropdown {
-  position: relative; /* Для позиционирования выпадающего списка */
-  margin-right: 20px; /* Отступ между выпадающими списками */
+  position: relative;
+  margin-right: 20px;
 }
 
 .dropbtn {
-  background-color: #aaaaaa; /* Цвет фона кнопки */
-  color: black; /* Цвет текста */
-  padding: 10px 20px; /* Отступы кнопки */
-  font-size: 22px; /* Размер шрифта */
+  background-color: #aaaaaa;
+  color: black;
+  padding: 10px 20px;
+  font-size: 22px;
   font-family: "Kaisei Opti";
-  border: none; /* Убираем рамку */
+  border: none;
   border-radius: 15px;
-  cursor: pointer; /* Указатель при наведении */
+  cursor: pointer;
   transition: background-color 0.3s, color 0.3s;
 }
 
 .dropbtn:hover {
-  background-color: rgb(185, 185, 185); /* Полупрозрачный фон при наведении */
-  color: black; /* Черный цвет текста при наведении */
+  background-color: rgb(185, 185, 185);
+  color: black;
 }
 
 .dropdown-content {
-  display: none; /* Скрываем содержимое по умолчанию */
-  position: absolute; /* Позиционирование относительно родителя */
-  background-color: rgb(209, 209, 209); /* Цвет фона выпадающего списка */
-  min-width: 160px; /* Минимальная ширина */
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2); /* Тень */
+  display: none;
+  position: absolute;
+  background-color: rgb(209, 209, 209);
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   border-radius: 10px;
-  z-index: 1; /* Обеспечивает, чтобы содержимое было поверх других элементов */
+  z-index: 1;
 }
 
 .dropdown-content a {
-  color: black; /* Цвет текста */
-  padding: 12px 16px; /* Отступы */
-  text-decoration: none; /* Убираем подчеркивание */
-  display: block; /* Делаем ссылки блочными элементами */
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
 }
 
 .dropdown-content a:hover {
-  background-color: #f1f1f1; /* Цвет фона при наведении */
+  background-color: #f1f1f1;
 }
 
 .action-button {
   background-color: #ffc457;
   color: black;
-  padding: 10px 10px; /* Отступы кнопки */
-  font-size: 22px; /* Размер шрифта */
+  padding: 10px 10px;
+  font-size: 22px;
   font-family: "Kaisei Opti";
-  border: none; /* Убираем рамку */
+  border: none;
   border-radius: 15px;
-  cursor: pointer; /* Указатель при наведении */
+  cursor: pointer;
   transition: background-color 0.3s, color 0.3s;
 }
 
 .action-button:hover {
-  background-color: rgb(208, 125, 0); /* Полупрозрачный фон при наведении */
-  color: black; /* Черный цвет текста при наведении */
+  background-color: rgb(208, 125, 0);
+  color: black;
 }
 
 .navbar {
-  display: flex; /* Используем flexbox для выравнивания кнопок в строку */
-  background-color: #aaaaaa; /* Цвет фона меню */
-  padding: 10px; /* Отступы для верхнего меню */
-  justify-content: center; /* Центрируем кнопки по горизонтали */
-  width: calc(100% - 10px); /* Занимает всю ширину экрана минус отступы */
-  margin: 0 5px; /* Отступы между краем экрана и полосой меню: 10 пикселей слева и справа */
-  box-sizing: border-box; /* Учитываем отступы в расчете ширины */
+  display: flex;
+  background-color: #aaaaaa;
+  padding: 4px;
+  justify-content: center;
+  width: calc(100% - 0px);
+  margin: 0 0px;
+  box-sizing: border-box;
 }
 
 .nav-btn {
-  background-color: transparent; /* Прозрачный фон кнопок */
-  color: black; /* Черный цвет текста */
-  padding: 14px 20px; /* Отступы кнопки */
-  margin: 0 10px; /* Отступы между кнопками: 10 пикселей слева и справа */
-  border: 2px solid #aaaaaa; /* Черная рамка для кнопок */
-  cursor: pointer; /* Указатель при наведении */
-  font-size: 24px; /* Размер шрифта */
+  background-color: transparent;
+  color: black;
+  padding: 14px 20px;
+  margin: 0 10px;
+  border: 2px solid #aaaaaa;
+  cursor: pointer;
+  font-size: 24px;
   font-family: "Kaisei HarunoUmi";
-  border-radius: 15px; /* Закругленные углы */
-  transition: background-color 0.3s, color 0.3s; /* Плавный переход цвета фона и текста */
+  border-radius: 15px;
+  transition: background-color 0.3s, color 0.3s;
+  text-decoration: none;
 }
 
 .nav-btn:hover {
-  background-color: rgba(0, 0, 0, 0.1); /* Полупрозрачный фон при наведении */
-  color: black; /* Черный цвет текста при наведении */
+  background-color: rgba(0, 0, 0, 0.1);
+  color: black;
 }
 
 .navbar2 {
-  background-color: #e0c775; /* Цвет фона меню */
-  padding: 10px 0; /* Отступы для верхнего меню */
-  max-width: 1260px; /* Фиксированная ширина меню */
+  background-color: #e0c775;
+  padding: 10px 0;
+  max-width: 1260px;
   height: 180px;
-  margin: 10px auto; /* Центрируем меню с отступами по 10 пикселей от краев */
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Тень для меню */
-  display: flex; /* Используем flexbox для выравнивания элементов */
-  align-items: center; /* Вертикальное выравнивание элементов */
+  margin: 10px auto;
+  display: flex;
+  align-items: center;
   border-radius: 20px;
 }
 
 .arrow {
-  background-color: transparent; /* Прозрачный фон кнопок */
-  color: black; /* Цвет текста */
-  font-size: 28px; /* Размер шрифта для стрелок */
-  border: none; /* Убираем рамку */
-  cursor: pointer; /* Указатель при наведении */
-  padding: 10px; /* Отступы кнопок */
+  background-color: transparent;
+  color: black;
+  font-size: 28px;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+}
+
+.section {
+  display: none;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.section.fade-in {
+  opacity: 1;
 }
 
 .menu-container {
-  display: inline-block; /* Выравнивание кнопок в строку */
-  flex-grow: 1; /* Позволяем контейнеру занимать оставшееся пространство */
-  overflow: hidden; /* Убираем полосы прокрутки */
+  display: inline-block;
+  flex-grow: 1;
+  overflow: hidden;
+  align-items: center;
 }
 
-.nav-btn2 {
-  background-color: transparent; /* Прозрачный фон кнопок */
-  color: black; /* Цвет текста */
-  padding: 14px 20px; /* Отступы кнопки */
-  margin: 0 10px; /* Отступы между кнопками: 10 пикселей слева и справа */
-  border: 0px solid black; /* Белая рамка для кнопок */
-  cursor: pointer; /* Указатель при наведении */
-  font-size: 48px; /* Размер шрифта */
-  font-family: "Kalnia";
-  border-radius: 20px; /* Закругленные углы */
-  transition: background-color 0.3s, color 0.3s; /* Плавный переход цвета фона и текста */
-}
-
-.nav-btn2:hover {
-  background-color: rgba(
-    255,
-    255,
-    255,
-    0.1
-  ); /* Полупрозрачный фон при наведении */
-}
-
-.popular {
-  text-align: center; /* Выравнивание текста по центру */
+.nav-text {
+  font-family: "Kaisei HarunoUmi";
+  font-size: 60px;
+  color: #000;
+  cursor: default;
+  text-align: center;
+  transition: opacity 2s ease;
 }
 
 .centered-button {
-  width: 240px; /* Ширина кнопки */
-  height: 64px; /* Высота кнопки */
-  background-color: #afa381; /* Цвет фона кнопки */
-  color: black; /* Цвет текста */
-  border: none; /* Убираем рамку */
-  border-radius: 20px; /* Закругленные углы */
-  font-size: 36px; /* Размер шрифта */
+  width: 240px;
+  height: 64px;
+  background-color: #afa381;
+  color: black;
+  border: none;
+  border-radius: 20px;
+  font-size: 36px;
   font-family: "Kalnia";
-  cursor: pointer; /* Указатель при наведении */
-  transition: background-color 0.3s; /* Плавный переход цвета фона */
+  cursor: pointer;
+  transition: background-color 0.3s;
 }
 
 .centered-button:hover {
-  background-color: #857c63; /* Цвет фона при наведении */
+  background-color: #857c63;
 }
 
 .photo-container {
-  display: flex; /* Выстраиваем элементы в ряд */
-  justify-content: space-between; /* Равномерное распределение между элементами */
-  flex-wrap: wrap; /* Включаем перенос элементов, если экран слишком мал */
-  gap: 20px; /* Промежутки между элементами */
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
 }
 
 .photo-item {
-  text-align: center; /* Выравнивание контента по центру */
-  width: 365px; /* Ширина каждого фото-блока */
-  background-color: white; /* Белый фон для фото-блоков */
-  padding: 10px; /* Внутренний отступ */
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Небольшая тень для фото-блоков */
-  border-radius: 8px; /* Закругленные углы */
+  text-align: center;
+  width: 365px;
+  padding: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  text-decoration: none;
+  color: inherit;
 }
 
 .photo-item img {
-  width: 365px; /* Фиксированная ширина изображения */
-  height: 244px; /* Фиксированная высота изображения */
-  object-fit: cover; /* Кадрирование изображения для сохранения пропорций */
-  border-radius: 8px; /* Закругленные углы у изображения */
+  width: 365px;
+  height: 244px;
+  object-fit: cover;
+  border-radius: 8px;
 }
 
 .photo-button {
-  margin-top: 38px; /* Отступ сверху для кнопки */
-  padding: 10px 20px; /* Внутренний отступ кнопки */
-  background-color: #e4e4e4; /* Цвет кнопки */
-  color: black; /* Цвет текста кнопки */
-  border: none; /* Убираем рамку */
-  border-radius: 20px; /* Закругляем углы кнопки */
-  font-size: 32px; /* Размер текста кнопки */
+  margin-top: 10px;
+  padding: 3px 20px;
+  background-color: none;
+  color: black;
+  border: none;
+  border-radius: 20px;
+  font-size: 32px;
   font-family: "IBM Plex Serif";
-  cursor: pointer; /* Указатель при наведении */
-  transition: background-color 0.3s; /* Плавный переход цвета фона */
+  cursor: pointer;
+  transition: background-color 0.3s;
 }
 
 .photo-button:hover {
-  background-color: #a9a9a9; /* Цвет кнопки при наведении */
-}
-
-@media (max-width: 768px) {
-  .photo-item {
-    width: 48%; /* Делаем 2 фото в ряд на небольших экранах */
-  }
-}
-
-@media (max-width: 480px) {
-  .photo-item {
-    width: 100%; /* Одно фото в ряд на узких экранах */
-  }
+  background-color: #a9a9a9;
 }
 
 .footer {
-  background-color: #000; /* Черный фон */
-  color: #fff; /* Белый текст */
-  text-align: center; /* Выравнивание текста по центру */
-  padding: 20px 0; /* Отступы сверху и снизу */
+  background-color: #000;
+  color: #fff;
+  text-align: center;
+  padding: 20px 0;
   font-family: "Kodchasan";
-  font-size: 14px; /* Размер шрифта */
-  position: relative; /* Фиксированное положение */
-  width: 100%; /* На всю ширину экрана */
-  bottom: 0; /* Расположение внизу страницы */
+  font-size: 16px;
+  position: relative;
+  width: 100%;
+  bottom: 0;
   box-sizing: border-box;
+}
+
+/* Медиа-запросы для планшетов (768px и меньше) */
+@media (max-width: 768px) {
+  .navbar2 {
+    flex-direction: column;
+    height: auto;
+    padding: 20px;
+  }
+
+  .name .big {
+    font-size: 36px;
+  }
+
+  .name .small {
+    font-size: 24px;
+  }
+
+  .container {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .photo-item {
+    width: 48%;
+  }
+}
+
+/* Медиа-запросы для телефонов (480px и меньше) */
+@media (max-width: 480px) {
+  .wraper {
+    justify-content: center;
+    gap: 5px;
+  }
+
+  .wraper img {
+    width: 20px;
+  }
+
+  .name .big {
+    font-size: 24px;
+  }
+
+  .name .small {
+    font-size: 18px;
+  }
+
+  .container {
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .dropbtn {
+    font-size: 16px;
+    padding: 8px 12px;
+  }
+
+  .action-button {
+    font-size: 18px;
+    padding: 8px;
+  }
+
+  .nav-btn {
+    font-size: 18px;
+    padding: 10px 15px;
+  }
+
+  .photo-item {
+    width: 100%;
+  }
+
+  .centered-button {
+    width: 180px;
+    height: 48px;
+    font-size: 24px;
+  }
+
+  .footer {
+    font-size: 14px;
+  }
+}
+
+input[type="date"] {
+  background-color: #aaaaaa;
+  color: black;
+  padding: 10px 20px;
+  font-size: 22px;
+  font-family: "Kaisei Opti";
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+label[for="arrival-date"],
+label[for="departure-date"],
+label[for="amount-of-people"] {
+  font-size: 26px;
+  font-family: Kaisei Opti;
+  color: #333;
+}
+
+.people-input {
+  width: 58px;
+  padding: 12px;
+  font-size: 26px;
+  border: 1px solid #aaaaaa;
+  border-radius: 10px;
+  box-sizing: border-box;
+  background-color: #aaaaaa;
+  color: rgb(0, 0, 0);
 }
