@@ -7,25 +7,44 @@
     <link rel="stylesheet" href="/css/front_.css" />
   </head>
   <body>
-    <header class="header">
-      <div class="wraper">
-        <div class="point">
-          <a href="" class="header_point-link">
-            <img src="" alt="" />
-          </a>
-        </div>
-        <div class="mail">
-          <a href="" class="header_mail-link">
-            <img src="" alt="" />
-          </a>
-        </div>
-        <div class="phone">
-          <a href="" class="header_phone-link">
-            <img src="" alt="" />
-          </a>
-        </div>
+    <div class="wraper">
+      <div class="point">
+        <img
+          src="/img/point.jpg"
+          alt="Адрес"
+          onclick="toggleDropdown('pointDropdown')"
+        />
+        <ul class="dropdown3" id="pointDropdown">
+          <li>Nezavisimosti 10</li>
+        </ul>
       </div>
-    </header>
+      <div class="mail">
+        <img
+          src="/img/mail.jpg"
+          alt="Почта"
+          onclick="toggleDropdown('mailDropdown')"
+        />
+        <ul class="dropdown3" id="mailDropdown">
+          <li>butik@mail.com</li>
+        </ul>
+      </div>
+      <div class="phone">
+        <img
+          src="/img/phone.jpg"
+          alt="Телефон"
+          onclick="toggleDropdown('phoneDropdown')"
+        />
+        <ul class="dropdown3" id="phoneDropdown">
+          <li>+375 44 588 99 44</li>
+        </ul>
+      </div>
+      <div class="account">
+        <a href="/registration.html">
+          <img src="/img/account2.jpg" alt="Account" />
+        </a>
+      </div>
+    </div>
+
     <div class="name">
       <p>
         <span class="big">BUTIK</span> <span class="small">DI</span>
@@ -35,28 +54,68 @@
     </div>
     <div class="container">
       <div class="dropdown">
-        <button class="dropbtn" onclick="toggleDropdown('dropdown1')">
-          Arrival date-Departure date
-        </button>
-        <div class="dropdown-content" id="dropdown1">
-          <a href="#">Опция 1.1</a>
-          <a href="#">Опция 1.2</a>
-          <a href="#">Опция 1.3</a>
-        </div>
+        <label for="arrival-date">Arrival date</label>
+        <input
+          type="date"
+          id="arrival-date"
+          name="arrival-date"
+          class="date-input"
+        />
       </div>
+
       <div class="dropdown">
-        <button class="dropbtn" onclick="toggleDropdown('dropdown2')">
-          Amount of people
-        </button>
-        <div class="dropdown-content" id="dropdown2">
-          <a href="#">Опция 2.1</a>
-          <a href="#">Опция 2.2</a>
-          <a href="#">Опция 2.3</a>
-        </div>
+        <label for="departure-date">Departure date</label>
+        <input
+          type="date"
+          id="departure-date"
+          name="departure-date"
+          class="date-input"
+        />
       </div>
-      <button class="action-button">Search</button>
+
+      <div class="dropdown">
+        <label for="amount-of-people">Amount of people</label>
+        <input
+          type="number"
+          id="amount-of-people"
+          name="amount-of-people"
+          class="people-input"
+          min="1"
+          max="4"
+          value="1"
+        />
+      </div>
+
+      <button class="action-button" onclick="validateInputs()">Search</button>
+
+      <div id="error-message" style="color: red; margin-top: 10px"></div>
     </div>
 
+    <script>
+      function validateInputs() {
+        const arrivalDateInput = document.getElementById("arrival-date");
+        const departureDateInput = document.getElementById("departure-date");
+        const errorMessage = document.getElementById("error-message");
+
+        const arrivalDate = new Date(arrivalDateInput.value);
+        const departureDate = new Date(departureDateInput.value);
+
+        if (!arrivalDateInput.value || !departureDateInput.value) {
+          errorMessage.textContent =
+            "Please select both arrival and departure dates.";
+          return;
+        }
+
+        if (arrivalDate > departureDate) {
+          errorMessage.textContent =
+            "Error: Arrival date cannot be later than departure date.";
+          return;
+        }
+
+        errorMessage.textContent = "";
+        alert("Search initiated!");
+      }
+    </script>
     <script>
       function toggleDropdown(dropdownId) {
         const dropdown = document.getElementById(dropdownId);
@@ -73,19 +132,12 @@
         }
       };
     </script>
+    <p></p>
     <div class="navbar">
-      <button class="nav-btn" onclick="scrollToSection('section1')">
-        NOMERA
-      </button>
-      <button class="nav-btn" onclick="scrollToSection('section2')">
-        RESTRAUNTS
-      </button>
-      <button class="nav-btn" onclick="scrollToSection('section3')">
-        SPA & FITNESS
-      </button>
-      <button class="nav-btn" onclick="scrollToSection('section4')">
-        MEROPRIATIONS
-      </button>
+      <a href="#section1" class="nav-btn">NOMERA</a>
+      <a href="#section2" class="nav-btn">RESTAURANTS</a>
+      <a href="#section3" class="nav-btn">SPA & FITNESS</a>
+      <a href="#section4" class="nav-btn">EVENTS</a>
     </div>
 
     <script>
@@ -98,75 +150,70 @@
     <div class="navbar2">
       <button class="arrow" id="scrollLeft">&#9664;</button>
       <div class="menu-container" id="menuContainer">
-        <button class="nav-btn2" onclick="scrollToSection('section1')">
-          Раздел 1
-        </button>
-        <button class="nav-btn2" onclick="scrollToSection('section2')">
-          Раздел 2
-        </button>
-        <button class="nav-btn2" onclick="scrollToSection('section3')">
-          Раздел 3
-        </button>
-        <button class="nav-btn2" onclick="scrollToSection('section4')">
-          Раздел 4
-        </button>
-        <button class="nav-btn2" onclick="scrollToSection('section5')">
-          Раздел 5
-        </button>
+        <span class="nav-text" style="display: block">! Discounts !</span>
+        <span class="nav-text" style="display: none">! NEW DIRECTOR !</span>
+        <span class="nav-text" style="display: none">25.10.2024 PARTY</span>
+        <span class="nav-text" style="display: none">! NEW ROOMS !</span>
       </div>
       <button class="arrow" id="scrollRight">&#9654;</button>
     </div>
 
     <script>
-      let currentSectionIndex = 0;
-      const sections = document.querySelectorAll(".section");
+      let currentTextIndex = 0;
+      const navTexts = document.querySelectorAll(".nav-text");
 
-      function showSection(index) {
-        sections[currentSectionIndex].style.display = "none";
-        sections[index].style.display = "block";
-        currentSectionIndex = index;
+      function showText(index) {
+        navTexts[currentTextIndex].style.display = "none";
+        navTexts[index].style.display = "block";
+        currentTextIndex = index;
       }
 
       document
         .getElementById("scrollLeft")
         .addEventListener("click", function () {
           const newIndex =
-            (currentSectionIndex - 1 + sections.length) % sections.length;
-          showSection(newIndex);
+            (currentTextIndex - 1 + navTexts.length) % navTexts.length;
+          showText(newIndex);
         });
 
       document
         .getElementById("scrollRight")
         .addEventListener("click", function () {
-          const newIndex = (currentSectionIndex + 1) % sections.length;
-          showSection(newIndex);
+          const newIndex = (currentTextIndex + 1) % navTexts.length;
+          showText(newIndex);
         });
 
-      showSection(0);
+      showText(0);
     </script>
-    <div class="popular">
-      <button class="centered-button">Popular</button>
-    </div>
 
     <div class="photo-container">
       <div class="photo-item">
-        <img src="photo1.jpg" alt="Фото 1" />
-        <button class="photo-button">100£/Person</button>
+        <a href="#link1">
+          <img src="/img/first_photo.jpg" alt="Фото 1" />
+          <button class="photo-button">100£/Person</button>
+        </a>
       </div>
       <div class="photo-item">
-        <img src="photo2.jpg" alt="Фото 2" />
-        <button class="photo-button">100£/Person</button>
+        <a href="#link2">
+          <img src="/img/second_photo.jpg" alt="Фото 2" />
+          <button class="photo-button">100£/Person</button>
+        </a>
       </div>
       <div class="photo-item">
-        <img src="photo3.jpg" alt="Фото 3" />
-        <button class="photo-button">100£/Person</button>
+        <a href="#link3">
+          <img src="/img/third_photo.jpg" alt="Фото 3" />
+          <button class="photo-button">100£/Person</button>
+        </a>
       </div>
       <div class="photo-item">
-        <img src="photo4.jpg" alt="Фото 4" />
-        <button class="photo-button">100£/Person</button>
+        <a href="#link4">
+          <img src="/img/fourth_photo.jpg" alt="Фото 4" />
+          <button class="photo-button">100£/Person</button>
+        </a>
       </div>
     </div>
 
+    <p></p>
     <footer class="footer">
       <p>Nezavisimosti, 10, Minsk, Belarus. Tel: +375 44 588 99 44</p>
       <p>© 2023. Hotel Butik di Mosca</p>
