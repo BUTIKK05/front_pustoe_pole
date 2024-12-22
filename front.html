@@ -122,6 +122,18 @@
 
         errorMessage.textContent = "";
         alert("Search initiated!");
+        const url = "http://localhost:8080/bookings";
+        const res = fetch(url, {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin': '*'
+          }
+        });
+
+        console.log(res)
+        
+
       }
     </script>
     <script>

@@ -1,0 +1,480 @@
+/* kalnia-regular - latin */
+@font-face {
+    font-display: swap;
+    /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: "Kalnia";
+    font-style: normal;
+    font-weight: 400;
+    src: url("../fonts/kalnia-v2-latin-regular.woff2") format("woff2");
+    /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+/* lato-regular - latin */
+@font-face {
+    font-display: swap;
+    /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: "Lato";
+    font-style: normal;
+    font-weight: 400;
+    src: url("../fonts/lato-v24-latin-regular.woff2") format("woff2");
+    /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+/* lato-700 - latin */
+@font-face {
+    font-display: swap;
+    /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: "Lato";
+    font-style: normal;
+    font-weight: 700;
+    src: url("../fonts/lato-v24-latin-700.woff2") format("woff2");
+    /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+/* kaisei-harunoumi-regular - latin */
+@font-face {
+    font-display: swap;
+    /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: "Kaisei HarunoUmi";
+    font-style: normal;
+    font-weight: 400;
+    src: url("../fonts/kaisei-harunoumi-v9-latin-regular.woff2") format("woff2");
+    /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+/* khula-regular - latin */
+@font-face {
+    font-display: swap;
+    /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: "Khula";
+    font-style: normal;
+    font-weight: 400;
+    src: url("../fonts/khula-v12-latin-regular.woff2") format("woff2");
+    /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+/* ibm-plex-serif-regular - latin */
+@font-face {
+    font-display: swap;
+    /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: "IBM Plex Serif";
+    font-style: normal;
+    font-weight: 400;
+    src: url("../fonts/ibm-plex-serif-v19-latin-regular.woff2") format("woff2");
+    /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+/* kodchasan-regular - latin */
+@font-face {
+    font-display: swap;
+    /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: "Kodchasan";
+    font-style: normal;
+    font-weight: 400;
+    src: url("../fonts/kodchasan-v17-latin-regular.woff2") format("woff2");
+    /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+/* kaisei-opti-regular - latin */
+@font-face {
+    font-display: swap;
+    /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: "Kaisei Opti";
+    font-style: normal;
+    font-weight: 400;
+    src: url("../fonts/kaisei-opti-v9-latin-regular.woff2") format("woff2");
+    /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+/* Основные стили остаются без изменений */
+body {
+    background-image: url("/img/fone_proekt.jpg");
+    background-size: 2200px 649px;
+    background-position: center bottom;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-color: white;
+}
+
+.wraper {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 10px;
+}
+
+.wraper div {
+    position: relative;
+}
+
+.wraper img {
+    width: 30px;
+    height: auto;
+    cursor: pointer;
+}
+
+.dropdown3 {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: white;
+    list-style: none;
+    padding: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    border-radius: 10px;
+}
+
+.dropdown li {
+    display: inline;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.dropdown li:hover {
+    background-color: #f1f1f1;
+}
+
+a:focus+.dropdown,
+a:hover+.dropdown {
+    display: block;
+}
+
+.name {
+    text-align: center;
+    font-family: "Kalnia";
+    line-height: 0.5;
+}
+
+.name .big {
+    font-size: 48px;
+}
+
+.name .small {
+    font-size: 32px;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.dropdown {
+    position: relative;
+    margin-right: 20px;
+}
+
+.dropbtn {
+    background-color: #aaaaaa;
+    color: black;
+    padding: 10px 20px;
+    font-size: 22px;
+    font-family: "Kaisei Opti";
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.dropbtn:hover {
+    background-color: rgb(185, 185, 185);
+    color: black;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: rgb(209, 209, 209);
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+.action-button {
+    background-color: #ffc457;
+    color: black;
+    padding: 10px 10px;
+    font-size: 22px;
+    font-family: "Kaisei Opti";
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.action-button:hover {
+    background-color: rgb(208, 125, 0);
+    color: black;
+}
+
+.navbar {
+    display: flex;
+    background-color: #aaaaaa;
+    padding: 4px;
+    justify-content: center;
+    width: calc(100% - 0px);
+    margin: 0 0px;
+    box-sizing: border-box;
+}
+
+.nav-btn {
+    background-color: transparent;
+    color: black;
+    padding: 14px 20px;
+    margin: 0 10px;
+    border: 2px solid #aaaaaa;
+    cursor: pointer;
+    font-size: 24px;
+    font-family: "Kaisei HarunoUmi";
+    border-radius: 15px;
+    transition: background-color 0.3s, color 0.3s;
+    text-decoration: none;
+}
+
+.nav-btn:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+    color: black;
+}
+
+.navbar2 {
+    background-color: #e0c775;
+    padding: 10px 0;
+    max-width: 1260px;
+    height: 180px;
+    margin: 10px auto;
+    display: flex;
+    align-items: center;
+    border-radius: 20px;
+}
+
+.arrow {
+    background-color: transparent;
+    color: black;
+    font-size: 28px;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.section {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.section.fade-in {
+    opacity: 1;
+}
+
+.menu-container {
+    display: inline-block;
+    flex-grow: 1;
+    overflow: hidden;
+    align-items: center;
+}
+
+.nav-text {
+    font-family: "Kaisei HarunoUmi";
+    font-size: 60px;
+    color: #000;
+    cursor: default;
+    text-align: center;
+    transition: opacity 2s ease;
+}
+
+.centered-button {
+    width: 240px;
+    height: 64px;
+    background-color: #afa381;
+    color: black;
+    border: none;
+    border-radius: 20px;
+    font-size: 36px;
+    font-family: "Kalnia";
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.centered-button:hover {
+    background-color: #857c63;
+}
+
+.photo-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.photo-item {
+    text-align: center;
+    width: 365px;
+    padding: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    text-decoration: none;
+    color: inherit;
+}
+
+.photo-item img {
+    width: 365px;
+    height: 244px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.photo-button {
+    margin-top: 10px;
+    padding: 3px 20px;
+    background-color: none;
+    color: black;
+    border: none;
+    border-radius: 20px;
+    font-size: 32px;
+    font-family: "IBM Plex Serif";
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.photo-button:hover {
+    background-color: #a9a9a9;
+}
+
+.footer {
+    background-color: #000;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+    font-family: "Kodchasan";
+    font-size: 16px;
+    position: relative;
+    width: 100%;
+    bottom: 0;
+    box-sizing: border-box;
+}
+
+/* Медиа-запросы для планшетов (768px и меньше) */
+@media (max-width: 768px) {
+    .navbar2 {
+        flex-direction: column;
+        height: auto;
+        padding: 20px;
+    }
+
+    .name .big {
+        font-size: 36px;
+    }
+
+    .name .small {
+        font-size: 24px;
+    }
+
+    .container {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .photo-item {
+        width: 48%;
+    }
+}
+
+/* Медиа-запросы для телефонов (480px и меньше) */
+@media (max-width: 480px) {
+    .wraper {
+        justify-content: center;
+        gap: 5px;
+    }
+
+    .wraper img {
+        width: 20px;
+    }
+
+    .name .big {
+        font-size: 24px;
+    }
+
+    .name .small {
+        font-size: 18px;
+    }
+
+    .container {
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .dropbtn {
+        font-size: 16px;
+        padding: 8px 12px;
+    }
+
+    .action-button {
+        font-size: 18px;
+        padding: 8px;
+    }
+
+    .nav-btn {
+        font-size: 18px;
+        padding: 10px 15px;
+    }
+
+    .photo-item {
+        width: 100%;
+    }
+
+    .centered-button {
+        width: 180px;
+        height: 48px;
+        font-size: 24px;
+    }
+
+    .footer {
+        font-size: 14px;
+    }
+}
+
+input[type="date"] {
+    background-color: #aaaaaa;
+    color: black;
+    padding: 10px 20px;
+    font-size: 22px;
+    font-family: "Kaisei Opti";
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+label[for="arrival-date"],
+label[for="departure-date"],
+label[for="amount-of-people"] {
+    font-size: 26px;
+    font-family: Kaisei Opti;
+    color: #333;
+}
+
+.people-input {
+    width: 58px;
+    padding: 12px;
+    font-size: 26px;
+    border: 1px solid #aaaaaa;
+    border-radius: 10px;
+    box-sizing: border-box;
+    background-color: #aaaaaa;
+    color: rgb(0, 0, 0);
+}
