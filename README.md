@@ -26,5 +26,5 @@ npm start
 npm run build
 
 Команда проекта
-Бут-Гусаим Алексей — Front-End Engineer
+Бут-Гусаим Алексей, Утрушкин Иван — Front-End Engineer
 
