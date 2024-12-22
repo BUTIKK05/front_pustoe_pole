@@ -3,12 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Login to account</title>
+    <title>Register an Account</title>
     <link rel="stylesheet" href="registration.css" />
   </head>
   <body>
     <div class="container">
-      <h1>Login to account</h1>
+      <h1>Register an Account</h1>
 
       <form id="registrationForm" action="/submit_registration" method="POST">
         <label for="username">Username:</label>
@@ -19,23 +19,30 @@
         <br />
         <label for="password">Password:</label>
         <input type="password" id="password" name="password" required />
-        <div class="error-message" id="passwordError">
+        <div class="error-message" id="passwordError" style="display: none">
           Password must be at least 8 characters long, contain at least 2
           letters and 1 punctuation mark.
         </div>
         <br />
-        <button type="submit">Login</button>
+        <button type="submit">Register</button>
       </form>
+
+      <hr />
+      <!-- Кнопка перехода на страницу входа -->
+      <div class="login-container">
+        <p>Already have an account?</p>
+        <button onclick="redirectToLogin()">Login</button>
+      </div>
     </div>
 
     <script>
-      // Функция для проверки пароля
+      // Проверка валидности пароля
       function validatePassword(password) {
         const minLength = 8;
         const letterCount = /[a-zA-Z]/g; // Регулярное выражение для поиска букв
         const punctuationCount = /[.,:;!?]/g; // Регулярное выражение для знаков препинания
 
-        // Проверяем, что длина пароля >= 8 символов
+        // Проверяем минимальную длину
         if (password.length < minLength) {
           return false;
         }
@@ -55,7 +62,7 @@
         return true;
       }
 
-      // Обработчик отправки формы
+      // Обработчик формы
       document
         .getElementById("registrationForm")
         .addEventListener("submit", function (e) {
@@ -66,15 +73,14 @@
 
           // Проверяем пароль
           if (!validatePassword(password)) {
-            // Показываем сообщение об ошибке
             passwordError.style.display = "block";
-            return; // Останавливаем отправку формы, если пароль не валиден
+            return;
           }
 
           // Если пароль валиден, скрываем сообщение об ошибке
           passwordError.style.display = "none";
 
-          // Отправка данных на сервер
+          // Отправляем запрос на сервер
           const formData = new FormData(this);
           fetch("/submit_registration", {
             method: "POST",
@@ -82,7 +88,7 @@
           })
             .then((response) => {
               if (response.ok) {
-                // Редирект на главную страницу
+                // Успешная регистрация — перенаправление на главную страницу
                 window.location.href = "front.html";
               } else {
                 alert("Registration failed. Please try again.");
@@ -93,6 +99,11 @@
               alert("An error occurred. Please try again.");
             });
         });
+
+      // Функция для перехода на страницу входа
+      function redirectToLogin() {
+        window.location.href = "login.html";
+      }
     </script>
   </body>
 </html>
