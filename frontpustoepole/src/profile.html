@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Редактирование профиля</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        margin: 0;
+        background-color: #f4f4f9;
+      }
+
+      .profile-container {
+        background: #ffffff;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        max-width: 400px;
+        width: 100%;
+      }
+
+      .profile-picture {
+        position: relative;
+        width: 120px;
+        height: 120px;
+        margin: 0 auto 20px;
+      }
+
+      .profile-picture img {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 4px solid #ddd;
+      }
+
+      .profile-picture .edit-icon {
+        position: absolute;
+        bottom: 10px;
+        right: 10px;
+        background: #007bff;
+        color: #fff;
+        border-radius: 50%;
+        width: 30px;
+        height: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+      }
+
+      .profile-container button {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        margin: 10px 0;
+        border: none;
+        border-radius: 5px;
+        background: #007bff;
+        color: white;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background 0.3s;
+      }
+
+      .profile-container button:hover {
+        background: #0056b3;
+      }
+
+      .hidden {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="profile-container">
+      <!-- Кружок с иконкой -->
+      <div class="profile-picture">
+        <img
+          id="profileImage"
+          src="https://via.placeholder.com/120"
+          alt="Profile Picture"
+        />
+        <label for="imageUpload" class="edit-icon"> &#9998; </label>
+        <input
+          type="file"
+          id="imageUpload"
+          class="hidden"
+          accept="image/*"
+          onchange="changeProfileImage(event)"
+        />
+      </div>
+
+      <!-- Кнопки -->
+      <button onclick="edit('Имя')">Изменить имя</button>
+      <button onclick="edit('Фамилия')">Изменить фамилию</button>
+      <button onclick="edit('Email')">Изменить email</button>
+      <button onclick="edit('Пароль')">Изменить пароль</button>
+
+      <!-- Кнопка для перехода на главную -->
+      <button onclick="goToHome()">Перейти на главную</button>
+    </div>
+
+    <script>
+      function changeProfileImage(event) {
+        const file = event.target.files[0];
+        if (file) {
+          const reader = new FileReader();
+          reader.onload = function (e) {
+            document.getElementById("profileImage").src = e.target.result;
+          };
+          reader.readAsDataURL(file);
+        }
+      }
+
+      function edit(field) {
+        const newValue = prompt(`Введите новое значение для ${field}:`);
+        if (newValue) {
+          alert(`${field} успешно обновлено на: ${newValue}`);
+        }
+      }
+
+      // Функция перехода на главную страницу
+      function goToHome() {
+        window.location.href = "front.html"; // Поменяйте путь на нужный URL главной страницы
+      }
+    </script>
+  </body>
+</html>
