@@ -112,7 +112,7 @@ function toggleDropdown(dropdownId) {
 }
 
 // Логирование прокрутки в навигации
-let currentTextIndex = 0;
+let currentTextIndex = 0; // Убедитесь, что переменная объявлена только один раз
 const navTexts = document.querySelectorAll(".nav-text");
 
 document.getElementById("scrollLeft").addEventListener("click", function () {
