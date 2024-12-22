@@ -1,109 +1,126 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Register an Account</title>
-    <link rel="stylesheet" href="registration.css" />
-  </head>
-  <body>
-    <div class="container">
-      <h1>Register an Account</h1>
 
-      <form id="registrationForm" action="/submit_registration" method="POST">
-        <label for="username">Username:</label>
-        <input type="text" id="username" name="username" required />
-        <br />
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required />
-        <br />
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" required />
-        <div class="error-message" id="passwordError" style="display: none">
-          Password must be at least 8 characters long, contain at least 2
-          letters and 1 punctuation mark.
-        </div>
-        <br />
-        <button type="submit">Register</button>
-      </form>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login to account</title>
+  <link rel="stylesheet" href="registration.css" />
+</head>
 
-      <hr />
-      <!-- Кнопка перехода на страницу входа -->
-      <div class="login-container">
-        <p>Already have an account?</p>
-        <button onclick="redirectToLogin()">Login</button>
+<body>
+  <div class="container">
+    <h1>Account Register</h1>
+
+    <form id="registrationForm" action="/submit_registration" method="POST">
+      <label for="firstname">First name:</label>
+      <input type="text" id="firstname" name="firstname" required />
+      <br />
+      <label for="lastname">Last name:</label>
+      <input type="text" id="lastname" name="lastname" required />
+      <br />
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required />
+      <br />
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" required />
+      <div class="error-message" id="passwordError">
+        Password must be at least 8 characters long, contain at least 2
+        letters and 1 punctuation mark.
       </div>
+      <br />
+      <button type="submit">Register</button>
+    </form>
+
+    <hr />
+    <!-- Кнопка перехода на страницу входа -->
+    <div class="login-container">
+      <p>Already have an account?</p>
+      <button onclick="redirectToLogin()">Login</button>
     </div>
 
-    <script>
-      // Проверка валидности пароля
-      function validatePassword(password) {
-        const minLength = 8;
-        const letterCount = /[a-zA-Z]/g; // Регулярное выражение для поиска букв
-        const punctuationCount = /[.,:;!?]/g; // Регулярное выражение для знаков препинания
+  </div>
+  <script>
+    // Функция для проверки пароля
+    function validatePassword(password) {
+      const minLength = 8;
+      const letterCount = /[a-zA-Z]/g; // Регулярное выражение для поиска букв
+      const punctuationCount = /[.,:;!?]/g; // Регулярное выражение для знаков препинания
 
-        // Проверяем минимальную длину
-        if (password.length < minLength) {
-          return false;
-        }
-
-        // Проверяем наличие минимум 2 букв
-        const letters = password.match(letterCount);
-        if (!letters || letters.length < 2) {
-          return false;
-        }
-
-        // Проверяем наличие хотя бы одного знака препинания
-        const punctuations = password.match(punctuationCount);
-        if (!punctuations || punctuations.length < 1) {
-          return false;
-        }
-
-        return true;
+      // Проверяем минимальную длину
+      if (password.length < minLength) {
+        return false;
       }
 
-      // Обработчик формы
-      document
-        .getElementById("registrationForm")
-        .addEventListener("submit", function (e) {
-          e.preventDefault();
+      // Проверяем наличие минимум 2 букв
+      const letters = password.match(letterCount);
+      if (!letters || letters.length < 2) {
+        return false;
+      }
 
-          const password = document.getElementById("password").value;
-          const passwordError = document.getElementById("passwordError");
+      // Проверяем наличие хотя бы одного знака препинания
+      const punctuations = password.match(punctuationCount);
+      if (!punctuations || punctuations.length < 1) {
+        return false;
+      }
 
-          // Проверяем пароль
-          if (!validatePassword(password)) {
-            passwordError.style.display = "block";
-            return;
-          }
+      return true;
+    }
 
-          // Если пароль валиден, скрываем сообщение об ошибке
-          passwordError.style.display = "none";
+    function formDataToJson(formData) {
+      const object = {};
+      formData.forEach((value, key) => { object[key] = value; });
+      return JSON.stringify(object);
+    }
 
-          // Отправляем запрос на сервер
-          const formData = new FormData(this);
-          fetch("/submit_registration", {
-            method: "POST",
-            body: formData,
+    // Обработчик отправки формы
+    document
+      .getElementById("registrationForm")
+      .addEventListener("submit", function (e) {
+        e.preventDefault();
+        const password = document.getElementById("password").value;
+        const passwordError = document.getElementById("passwordError");
+        // Проверяем пароль
+        if (!validatePassword(password)) {
+          // Показываем сообщение об ошибке
+          passwordError.style.display = "block";
+          return; // Останавливаем отправку формы, если пароль не валиден
+        }
+
+        // Если пароль валиден, скрываем сообщение об ошибке
+        passwordError.style.display = "none";
+
+        // Отправка данных на сервер
+        const formData = new FormData(this);
+        const formDataJson = formDataToJson(formData);
+        const url = "http://localhost:8080/auth/signup";
+        console.log(formData)
+        fetch("/signup", {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin': '*'
+          },
+          body: formDataJson
+        })
+          .then((response) => {
+            if (response.ok) {
+              // Редирект на главную страницу
+              window.location.href = "front.html";
+            } else {
+              window.location.href = "front.html";
+            }
           })
-            .then((response) => {
-              if (response.ok) {
-                // Успешная регистрация — перенаправление на главную страницу
-                window.location.href = "front.html";
-              } else {
-                alert("Registration failed. Please try again.");
-              }
-            })
-            .catch((error) => {
-              console.error("Error:", error);
-              alert("An error occurred. Please try again.");
-            });
-        });
+          .catch((error) => {
+            console.error("Error:", error);
+            alert("An error occurred. Please try again.");
+          });
+      });
+    // Функция для перехода на страницу входа
+    function redirectToLogin() {
+      window.location.href = "login.html";
+    }
+  </script>
+</body>
 
-      // Функция для перехода на страницу входа
-      function redirectToLogin() {
-        window.location.href = "login.html";
-      }
-    </script>
-  </body>
 </html>

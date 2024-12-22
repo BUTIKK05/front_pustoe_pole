@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <link rel="stylesheet" href="registration.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Login to account</h1>
+
+      <form id="loginForm" action="/submit_login" method="POST">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required />
+        <br />
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required />
+        <br />
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required />
+        <div class="error-message" id="loginError" style="display: none">
+          Invalid username, email, or password. Please try again.
+        </div>
+        <br />
+        <button type="submit">Login</button>
+      </form>
+
+      <div class="register-container">
+        <p>Don't have an account?</p>
+        <button onclick="window.location.href='registration.html'">
+          Register
+        </button>
+      </div>
+    </div>
+
+    <script>
+      // Обработчик отправки формы входа
+      document
+        .getElementById("loginForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault(); // Отменяем стандартное поведение формы
+
+          const formData = new FormData(this);
+          const loginError = document.getElementById("loginError");
+
+          // Скрываем сообщение об ошибке перед новой попыткой
+          loginError.style.display = "none";
+
+          fetch("/submit_login", {
+            method: "POST",
+            body: formData,
+          })
+            .then((response) => {
+              if (response.ok) {
+                // Успешный вход — перенаправление на главную страницу
+                window.location.href = "front.html";
+              } else {
+                // Показ сообщения об ошибке
+                window.location.href = "front.html";
+              }
+            })
+            .catch((error) => {
+              console.error("Error:", error);
+              alert("An error occurred. Please try again.");
+            });
+        });
+    </script>
+  </body>
+</html>

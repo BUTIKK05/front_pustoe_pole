@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hotel Chat</title>
+  <link rel="stylesheet" href="/css/chat.css">
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f8f9fa;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .chat-container {
+      display: flex;
+      flex-direction: column;
+      height: 70vh;
+      width: 50%;
+      max-width: 600px;
+      background-color: #fff;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .chat-header {
+      background-color: #003366;
+      color: white;
+      padding: 1rem;
+      text-align: center;
+      font-size: 1.4rem;
+      font-weight: bold;
+      border-bottom: 1px solid #ddd;
+    }
+    .chat-body {
+      flex: 1;
+      padding: 1rem;
+      overflow-y: auto;
+      border-bottom: 1px solid #ddd;
+      background-color: #f1f1f1;
+    }
+    .chat-footer {
+      display: flex;
+      padding: 1rem;
+      border-top: 1px solid #ddd;
+      background-color: #fff;
+    }
+    .chat-footer input {
+      flex: 1;
+      padding: 0.75rem;
+      border: 1px solid #ddd;
+      border-radius: 20px;
+      margin-right: 0.5rem;
+      outline: none;
+      transition: border-color 0.3s;
+    }
+    .chat-footer input:focus {
+      border-color: #003366;
+    }
+    .chat-footer button {
+      padding: 0.75rem 1.25rem;
+      background-color: #003366;
+      color: white;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    .chat-footer button:hover {
+      background-color: #002244;
+    }
+    .message {
+      margin-bottom: 0.75rem;
+      padding: 0.75rem;
+      border-radius: 10px;
+      background-color: #e0e0e0;
+      max-width: 70%;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    .message.you {
+      background-color: #003366;
+      color: white;
+      align-self: flex-end;
+      text-align: right;
+    }
+    .message.guest {
+      background-color: #ffcc00;
+      align-self: flex-start;
+      text-align: left;
+    }
+  </style>
+</head>
+<body>
+  <div class="chat-container">
+    <div class="chat-header">Welcome to Our Hotel Chat</div>
+    <div class="chat-body" id="chatMessages"></div>
+    <div class="chat-footer">
+      <input type="text" id="chatInput" placeholder="Type your message..." onkeypress="handleEnter(event)">
+      <button onclick="sendMessage()">Send</button>
+    </div>
+  </div>
+  <script>
+    function sendMessage() {
+      var input = document.getElementById('chatInput');
+      var message = input.value;
+      if (message.trim() !== "") {
+        addMessageToChat(message, 'you');
+        input.value = '';
+      }
+    }
+
+    function handleEnter(event) {
+      if (event.key === 'Enter') {
+        sendMessage();
+      }
+    }
+
+    function addMessageToChat(message, sender) {
+      var chatMessages = document.getElementById('chatMessages');
+      var messageElement = document.createElement('div');
+      messageElement.classList.add('message');
+      if (sender === 'you') {
+        messageElement.classList.add('you');
+        message = "You: " + message;
+      } else {
+        messageElement.classList.add('guest');
+      }
+      messageElement.textContent = message;
+      chatMessages.appendChild(messageElement);
+      chatMessages.scrollTop = chatMessages.scrollHeight; // Прокрутка вниз
+    }
+  </script>
+</body>
+</html>

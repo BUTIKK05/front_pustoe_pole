@@ -1,35 +1,24 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import FrontPage from './forms/front/FrontPage.tsx';
+import FirstLinkPage from './forms/firstlink/FirstLinkPage.tsx';
+import SecondLinkPage from './forms/secondlink/SecondLinkPage.tsx';
+import ThirdLinkPage from './forms/thirdlink/ThirdLinkPage.tsx';
+
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <Router>
+      <div className="App">
+        <Routes>
+          <Route path="/front.html" element={<FrontPage/>} />
+          <Route path="/firstlink.html" element={<FirstLinkPage/>} />
+          <Route path="/secondlink.html" element={<SecondLinkPage/>} />
+          <Route path="/thirdlink.html" element={<ThirdLinkPage/>} />
+        </Routes>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    </Router>
+  );
 }
 
-export default App
+export default App;
