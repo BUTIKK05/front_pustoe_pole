@@ -1,4 +1,5 @@
 // Функция для получения текущей даты и времени в формате YYYY-MM-DD HH:mm:ss
+/*
 function getCurrentTimestamp() {
   const now = new Date();
   const year = now.getFullYear();
@@ -152,3 +153,4 @@ function showText(index) {
 window.onload = function () {
   console.log(`[${getCurrentTimestamp()}] Страница загружена: BUTIK DI MOSCA`);
 };
+*/
